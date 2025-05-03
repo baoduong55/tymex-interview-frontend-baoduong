@@ -1,5 +1,3 @@
-'use client'
-
 import Loading from "@/components/Loading/Loading";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";

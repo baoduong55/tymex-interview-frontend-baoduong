@@ -1,10 +1,19 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TSearchProductParams } from '@/features/product/type/filter';
 import { TProduct } from '@/features/product/type/product';
 import { ApiInstance } from '@/lib/axios';
 import { useState, useEffect } from 'react';
 import { initialSearchParams } from '@/features/product/const/filter';
-export const fetcher = async (params?: Record<string, any>, signal?: AbortSignal) => {
+export const fetcher = async (params?: TSearchProductParams, signal?: AbortSignal) => {
+  // Convert 'all' values to null in params
+  if (params) {
+    const cleanedParams = { ...params };
+    for (const key in cleanedParams) {
+      if (cleanedParams[key] === 'all') {
+        cleanedParams[key] = null;
+      }
+    }
+    params = cleanedParams;
+  }
   return ApiInstance.get<{ data: TProduct[] }>('/product', params, signal);
 };
 

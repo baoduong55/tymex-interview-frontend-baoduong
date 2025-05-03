@@ -4,14 +4,14 @@ export type TFilter = {
   minPrice: number;
   maxPrice: number;
   priceSort: 'asc' | 'desc';
-  tier: TProduct['tier'] | null;
-  theme: TProduct['theme'] | null;
+  tier: TProduct['tier'] | 'all';
+  theme: TProduct['theme'] | 'all';
   timeSort: 'asc' | 'desc';
 }
 
 export type TSearchProductParams = {
   page: number
   limit: number
-  category?: TProduct['category']
+  category?: TProduct['category'] | "all"
   title?: string
 } & TFilter

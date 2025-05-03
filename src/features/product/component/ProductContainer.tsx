@@ -4,7 +4,7 @@ import NFTCard from "@/features/product/component/NFTCard";
 import { Button } from "@/components/Button/Button";
 import { useProducts } from "@/features/product/hook/useProduct";
 import HeroBanner from "@/features/product/component/HeroBanner";
-import CategoryFilterWithScroll from "@/features/product/component/Filter/CategoryFilterWithScroll";
+import CategoryFilter from "@/features/product/component/Filter/CategoryFilter";
 import FilterGroup from "@/features/product/component/Filter/FilterGroup";
 import { FilterOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -27,7 +27,7 @@ export default function ProductContainer() {
             Filters <FilterOutlined className="text-lg ml-1" />
           </Button>
         </section>
-        <CategoryFilterWithScroll></CategoryFilterWithScroll>
+        <CategoryFilter onApplyFilter={(category) => onSearch({ category, page: 1 })}></CategoryFilter>
         <section className="hidden laptop:block">
           <FilterGroup onApplyFilter={(filter) => onSearch({ ...filter, page: 1 })}></FilterGroup>
         </section>

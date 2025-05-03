@@ -4,8 +4,8 @@ export const initialFilter: TFilter = {
   minPrice: 0,
   maxPrice: 1000,
   priceSort: 'asc',
-  tier: null,
-  theme: null,
+  tier: 'all',
+  theme: 'all',
   timeSort: 'asc',
 }
 
@@ -16,9 +16,10 @@ export const initialSearchParams: TSearchProductParams = {
   ...initialFilter
 }
 
+
 export const tiers = [
   {
-    key: null,
+    key: "all",
     label: 'All'
   },
   {
@@ -45,7 +46,7 @@ export const tiers = [
 
 export const themes = [
   {
-    key: null,
+    key: "all",
     label: "All"
   },
   {
