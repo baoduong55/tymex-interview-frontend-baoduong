@@ -1,32 +1,81 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { TSearchProductParams } from '@/features/product/type/filter';
+import { TProduct } from '@/features/product/type/product';
 import { ApiInstance } from '@/lib/axios';
-import { TProduct } from '@/app/api/product/type';
 import { useState, useEffect } from 'react';
-
+import { initialSearchParams } from '@/features/product/const/filter';
 export const fetcher = async (params?: Record<string, any>, signal?: AbortSignal) => {
   return ApiInstance.get<{ data: TProduct[] }>('/product', params, signal);
 };
 
 export function useProducts() {
+  const [isFirstLoad, setIsFirstLoad] = useState(true)
+  const [searchParams, setSearchParams] = useState<TSearchProductParams>(initialSearchParams)
   const [products, setProducts] = useState<TProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const fetchProducts = async ({ page = 1, limit = 12 }: { page?: number, limit?: number }) => {
+
+  function onLoadMore() {
+    setSearchParams({
+      ...searchParams,
+      page: searchParams.page + 1
+    })
+    const newParams = {
+      ...searchParams,
+      page: searchParams.page + 1
+    }
+    fetchProducts(newParams)
+  }
+
+  async function fetchProducts(params: TSearchProductParams = searchParams, noLoading = false) {
     try {
-      setIsLoading(true)
-      const res = await fetcher({ page, limit })
-      setProducts([...products, ...res.data])
+      if (!noLoading) {
+        setIsLoading(true)
+      }
+      const res = await fetcher(params)
+      if (params.page === 1) {
+        setProducts(res.data)
+      } else {
+        setProducts([...products, ...res.data])
+      }
       setIsLoading(false)
     } catch (error) {
       console.error(error)
     }
+    setIsFirstLoad(false)
   }
+  function onSearch(params: Partial<TSearchProductParams>) {
+    const newParams = {
+      ...searchParams,
+      ...params,
+    }
+    setSearchParams(newParams)
+    fetchProducts(newParams)
+  }
+
   useEffect(() => {
-    fetchProducts({ page: 1, limit: 12 })
+    fetchProducts()
   }, [])
+
+  // System auto fetch products every 60 seconds (no loading indicator)
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      fetchProducts({
+        ...searchParams,
+        page: 1,
+        limit: searchParams.page * searchParams.limit,
+      }, true);
+    }, 60000); // 60 seconds
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [searchParams]);
 
   return {
     products,
     isLoading,
-    fetchProducts
+    onSearch,
+    onLoadMore,
+    isFirstLoad
   }
 }

@@ -42,4 +42,8 @@
     background: linear-gradient(90deg, #da458f00 0.55%, #DA41A2 24.03%, #DA37CE 83.19%, #da34dd00 102.8%) !important;
     height: 0.5rem !important;
   }
+
+  .ant-tooltip-inner {
+    background: var(--gradient-primary) !important;
+  }
 }

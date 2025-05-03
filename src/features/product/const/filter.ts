@@ -1,28 +1,51 @@
-import { MenuProps } from "antd/es/menu/menu"
+import { TFilter, TSearchProductParams } from "../type/filter";
 
-export const tiers: MenuProps['items'] = [
+export const initialFilter: TFilter = {
+  minPrice: 0,
+  maxPrice: 1000,
+  priceSort: 'asc',
+  tier: null,
+  theme: null,
+  timeSort: 'asc',
+}
+
+export const initialSearchParams: TSearchProductParams = {
+  page: 1,
+  limit: 12,
+  category: undefined,
+  ...initialFilter
+}
+
+export const tiers = [
   {
-    key: "all",
-    "label": "All"
+    key: null,
+    label: 'All'
   },
   {
-    key: "basic",
-    label: "Basic"
+    key: 'Legendary',
+    label: 'Legendary'
   },
   {
-    key: "premium",
-    label: "Premium"
+    key: 'Mythic',
+    label: 'Mythic'
   },
   {
-    key: "deluxe",
-    label: "Deluxe"
+    key: 'Epic',
+    label: 'Epic'
+  },
+  {
+    key: 'Rare',
+    label: 'Rare'
+  },
+  {
+    key: 'Common',
+    label: 'Common'
   }
 ]
-  ;
 
-export const themes: MenuProps['items'] = [
+export const themes = [
   {
-    key: "all",
+    key: null,
     label: "All"
   },
   {
@@ -44,31 +67,31 @@ export const themes: MenuProps['items'] = [
 
 ]
 
-export const prices: MenuProps['items'] = [
+export const prices = [
 
   {
-    key: "low-to-high",
+    key: "asc",
     label: "Low to high"
   },
   {
-    key: "high-to-low",
+    key: "desc",
     label: "High to low"
   }
 ]
 
-export const times: MenuProps['items'] = [
+export const times = [
   {
-    key: "latest",
+    key: "asc",
     label: "Latest"
   },
   {
-    key: "oldest",
+    key: "desc",
     label: "Oldest"
   }
 ]
 
 
-export const categories: MenuProps['items'] = [
+export const categories = [
   {
     key: "all",
     label: "All"
@@ -114,3 +137,5 @@ export const categories: MenuProps['items'] = [
     label: "Common"
   }
 ]
+
+export const LIMIT = 12;

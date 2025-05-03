@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import heart from '@icons/heart.svg';
 import heartFill from '@icons/heart-fill.svg';
-import { TProduct } from '@/app/api/product/type';
+import { TProduct } from '@/features/product/type/product';
 import clsx from 'clsx';
 interface NFTCardProps {
   product: TProduct;

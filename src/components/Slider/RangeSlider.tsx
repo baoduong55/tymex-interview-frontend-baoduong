@@ -7,20 +7,18 @@ import clsx from 'clsx';
 
 type TRangeSliderProps = {
   unit?: string;
+  limit?: [number, number];
+  onChange?: (values: number[]) => void;
   minValue?: number;
   maxValue?: number;
-  onChange?: (values: number[]) => void;
-  min?: number;
-  max?: number;
 }
 
 export default function RangeSlider({
   unit = 'ETH',
+  limit = [0, 1000],
   minValue = 0,
   maxValue = 1000,
   onChange,
-  min = 0,
-  max = 1000,
 }: TRangeSliderProps) {
   const handleChange = (values: number[]) => {
     onChange?.(values);
@@ -33,6 +31,7 @@ export default function RangeSlider({
           autoAdjustOverflow: false,
           placement: 'top',
           formatter: (value) => `${value} ${unit}`,
+
         }}
         styles={{
           rail: { background: '#3a3841', height: '0.5rem' },
@@ -47,16 +46,16 @@ export default function RangeSlider({
         }}
         range
         defaultValue={[minValue, maxValue]}
-        min={min}
-        max={max}
+        min={limit[0]}
+        max={limit[1]}
         onChangeComplete={handleChange}
       />
       <div className={'flex justify-between'}>
         <div>
-          {min} {unit}
+          {limit[0]} {unit}
         </div>
         <div>
-          {max} {unit}
+          {limit[1]} {unit}
         </div>
       </div>
     </div>

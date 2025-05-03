@@ -1,31 +1,31 @@
 import { type NextRequest } from 'next/server';
-import allProducts from './data.json';
-import { LIMIT } from '@/app/api/product/const';
 import { filterProducts, sortProducts } from './helper';
 import { parseQueryParam } from './helper';
-
+import { TProduct } from '@/features/product/type/product';
+import { LIMIT } from '@/features/product/const/filter';
+import allProducts from '@/features/product/const/data.json';
 
 export async function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams;
-  const paginationQuery = {
-    limit: parseQueryParam(params.get('limit'), LIMIT, 'number'),
-    offset: parseQueryParam(params.get('offset'), 0, 'number'),
-  }
-  const sortQuery = {
-    tier: parseQueryParam(params.get('tier'), '').toLowerCase(),
-    category: parseQueryParam(params.get('category'), ''),
-    theme: parseQueryParam(params.get('theme'), '').toLowerCase(),
-    time: parseQueryParam(params.get('time'), ''),
-    priceOrder: parseQueryParam(params.get('priceOrder'), ''),
-  };
   const filterQuery = {
-    text: parseQueryParam(params.get('text'), ''),
+    title: parseQueryParam(params.get('title'), ''),
     minPrice: parseQueryParam(params.get('minPrice'), 0, 'number'),
     maxPrice: parseQueryParam(params.get('maxPrice'), 0, 'number'),
+    tier: parseQueryParam(params.get('tier'), '').toLowerCase(),
+    theme: parseQueryParam(params.get('theme'), '').toLowerCase(),
+    category: parseQueryParam(params.get('category'), ''),
   }
-  const filtered = filterProducts(allProducts, filterQuery);
-  const sorted = sortProducts(filtered, sortQuery.time, sortQuery.priceOrder);
-  const paginated = sorted.slice(paginationQuery.offset, paginationQuery.offset + paginationQuery.limit);
+  const paginationQuery = {
+    limit: parseQueryParam(params.get('limit'), LIMIT, 'number'),
+    page: parseQueryParam(params.get('page'), 1, 'number'),
+  }
+  const sortQuery = {
+    time: parseQueryParam(params.get('timeSort'), ''),
+    priceSort: parseQueryParam(params.get('priceSort'), ''),
+  };
+  const filtered = filterProducts(allProducts as TProduct[], filterQuery);
+  const sorted = sortProducts(filtered, sortQuery.time, sortQuery.priceSort);
+  const paginated = sorted.slice((paginationQuery.page - 1) * paginationQuery.limit, paginationQuery.page * paginationQuery.limit);
 
   return new Response(
     JSON.stringify({

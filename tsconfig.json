@@ -31,6 +31,9 @@
       ],
       "@icons/*": [
         "./public/assets/icons/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
       ]
     },
     "noImplicitAny": false,

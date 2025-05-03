@@ -1,16 +1,17 @@
 import Modal from "antd/es/modal";
-import FilterContainer from "./FilterContainer";
-import { Button } from "@/components/Button/Button";
-import { TFilter } from "./FilterContainer";
+import FilterGroup from "./FilterGroup";
 import { CloseOutlined } from "@ant-design/icons";
+import { TFilter } from "@/features/product/type/filter";
 type TProps = {
   open: boolean
   onclose: () => void
+  onApplyFilter: (filter: TFilter) => void
 }
 
-export default function ModalFilter({ open, onclose }: TProps) {
-  const onApplyFilter = (filter: TFilter) => {
-    console.log(filter)
+export default function ModalFilter({ open, onclose, onApplyFilter }: TProps) {
+  function handleApplyFilter(filter: TFilter) {
+    onApplyFilter(filter)
+    onclose()
   }
   return <Modal
     open={open}
@@ -26,7 +27,7 @@ export default function ModalFilter({ open, onclose }: TProps) {
     }
   >
     <div className="mt-4 text-white">
-      <FilterContainer onApplyFilter={onApplyFilter}></FilterContainer>
+      <FilterGroup onApplyFilter={handleApplyFilter}></FilterGroup>
     </div>
   </Modal>
 }

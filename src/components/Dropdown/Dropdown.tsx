@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
 import { Dropdown as AntdDropdown, Button, } from 'antd';
 import style from './style.module.scss';
 
 type TDropdownProps = {
-  items: MenuProps['items'];
+  items: { key: string | null, label: string }[];
   value: any;
   onChange: (value: any) => void;
 }
@@ -18,7 +17,7 @@ export default function Dropdown({ items = [], value, onChange }: TDropdownProps
   }
   return (
     <span className={style.dropdown}>
-      <AntdDropdown menu={{ items, onClick: (info) => onSelect(info.key) }} trigger={['click']} >
+      <AntdDropdown menu={{ items: items as any, onClick: (info) => onSelect(info.key) }} trigger={['click']} >
         <Button>
           {item?.label}
           <DownOutlined />
