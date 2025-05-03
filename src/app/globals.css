@@ -1,15 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+
+@theme {
+  --breakpoint-desktoplg: 120rem; /* 1920px */
+  --breakpoint-desktop: 90rem; /* 1440px */
+  --breakpoint-laptop: 64rem; /* 1024px */
+  --breakpoint-tablet: 48rem; /* 768px */
+  --breakpoint-mobile: 32rem; /* 512px */
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-background-modal: var(--background-modal);
+  --color-active-border: var(--active-border);
+  --color-gradient-primary: var(--gradient-primary);
+  --color-gradient-primary-hover: var(--gradient-primary-hover);
+  --color-gradient-primary-inactive: var(--gradient-primary-inactive);
+  --color-shadow-primary: var(--shadow-primary);
+  --color-shadow-primary-hover: var(--shadow-primary-hover);
+
+}
+
+:root {
+  --text-primary: white;
+  --text-secondary: black;
+  --primary-color: #da458f;
+  --secondary-color: rgba(218, 69, 143, 0.4);
+  --background: #ffffff;
+  --foreground: #171717;
+  --background-modal: #230127;
+  --active-border-color: #da458f;
+  --gradient-primary: linear-gradient(91.47deg, #da458f -6%, #da34dd 113.05%);
+  --gradient-primary-hover: linear-gradient(91.47deg, #d85697 -6%, #d34dd6 113.05%);
+  --gradient-primary-inactive: linear-gradient(91.47deg, rgba(218, 69, 143, 0.4) -6%, rgba(218, 52, 221, 0.4) 113.05%);
+  --shadow-primary: 0 0 3.125rem 0 #bb4bff52;
+  --shadow-primary-hover: 0 0 3.125rem 0 #c064f952;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,3 +56,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+

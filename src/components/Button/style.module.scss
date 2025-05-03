@@ -1,0 +1,51 @@
+.customButton {
+  [class~="primary"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    height: 2.75rem;
+    /* 44px */
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary) !important;
+
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-primary);
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    &.inactive {
+      background: var(--gradient-primary-inactive);
+      box-shadow: none;
+    }
+
+    &:hover {
+      background: var(--gradient-primary-hover);
+      box-shadow: var(--shadow-primary-hover);
+    }
+  }
+
+  [class~="secondary"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    height: 2.75rem;
+    color: var(--text-secondary) !important;
+    background: white;
+    box-shadow: var(--shadow-primary);
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      border-color: var(--primary-color);
+    }
+  }
+}
