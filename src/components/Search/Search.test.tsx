@@ -1,10 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Search from './Search';
+import Image from 'next/image';
 
 // Mock the Image component from next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: { src: string; alt: string; className?: string }) => <img {...props} />,
+  default: (props: { src: string; alt: string; className?: string }) => <Image {...props} alt={props.alt} />,
 }));
 
 // Mock the useDebounce hook

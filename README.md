@@ -1,9 +1,30 @@
 # TymeX Digital Asset Marketplace
 
 A modern web application for browsing and trading digital assets, built with Next.js, React, and TypeScript.
+## 🚀 Getting Started
+
+### Installation
+1. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+### Running Tests
+Run the test suite: 
+```yarn test:coverage```
 
 ## 🏗 Architecture Overview
-
 This project implements a feature-based architecture with clean separation of concerns, following modern React best practices.
 
 ### Requirements

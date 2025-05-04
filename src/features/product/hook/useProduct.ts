@@ -2,7 +2,7 @@
 import { TSearchProductParams } from '@/features/product/type/filter';
 import { TProduct } from '@/features/product/type/product';
 import { ApiInstance } from '@/lib/axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { initialSearchParams } from '@/features/product/const/filter';
 export const fetcher = async (params?: TSearchProductParams, signal?: AbortSignal) => {
   // Convert 'all' values to null in params
@@ -35,8 +35,7 @@ export function useProducts() {
     }
     fetchProducts(newParams)
   }
-
-  async function fetchProducts(params: TSearchProductParams = searchParams, noLoading = false) {
+  const fetchProducts = useCallback(async (params: TSearchProductParams = searchParams, noLoading = false) => {
     try {
       if (!noLoading) {
         setIsLoading(true)
@@ -52,7 +51,8 @@ export function useProducts() {
       console.error(error)
     }
     setIsFirstLoad(false)
-  }
+  }, [searchParams, products])
+
   function onSearch(params: Partial<TSearchProductParams>) {
     const newParams = {
       ...searchParams,

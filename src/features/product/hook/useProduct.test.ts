@@ -139,7 +139,7 @@ describe('useProducts', () => {
 
   it('should auto-refresh products every 60 seconds', async () => {
     const { result } = renderHook(() => useProducts());
-
+    console.log(result.current.products);
     await act(async () => {
       await Promise.resolve();
     });
