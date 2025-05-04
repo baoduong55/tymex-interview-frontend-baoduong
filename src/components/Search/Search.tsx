@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SearchIcon from "@icons/search.svg";
 import { useDebounce } from "@/hook/useDebounce";
-import { Input } from "@components/Input/Input";
+import { Input } from "@/components/Input/Input";
 
 type TSearchProps = {
   placeholder?: string;

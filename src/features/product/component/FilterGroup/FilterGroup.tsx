@@ -1,6 +1,6 @@
 import Field from "@/components/Field/Field";
-import RangeSlider from "@/components/Slider/RangeSlider";
 import Dropdown from "@/components/Dropdown/Dropdown";
+import RangeSlider from "@/components/Slider/RangeSlider";
 import { tiers, themes, prices, times } from '@/features/product/const/filter';
 import clsx from "clsx";
 import { Button } from "@/components/Button/Button";

@@ -18,15 +18,15 @@
 
     transition: background 0.3s ease, box-shadow 0.3s ease;
 
-    &.inactive {
-      background: var(--gradient-primary-inactive);
-      box-shadow: none;
-    }
-
     &:hover {
       background: var(--gradient-primary-hover);
       box-shadow: var(--shadow-primary-hover);
     }
+  }
+
+  [class~="inactive"] {
+    background: var(--gradient-primary-inactive);
+    box-shadow: none;
   }
 
   [class~="secondary"] {

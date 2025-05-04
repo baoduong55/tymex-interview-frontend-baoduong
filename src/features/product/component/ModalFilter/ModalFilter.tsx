@@ -1,7 +1,7 @@
 import Modal from "antd/es/modal";
-import FilterGroup from "./FilterGroup";
 import { CloseOutlined } from "@ant-design/icons";
 import { TFilter } from "@/features/product/type/filter";
+import FilterGroup from "../FilterGroup/FilterGroup";
 type TProps = {
   open: boolean
   onclose: () => void
@@ -14,6 +14,7 @@ export default function ModalFilter({ open, onclose, onApplyFilter }: TProps) {
     onclose()
   }
   return <Modal
+    data-testid="modal-filter"
     open={open}
     onCancel={onclose}
     classNames={{

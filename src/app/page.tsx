@@ -1,5 +1,5 @@
 import OneColumnsLayout from "@/layout/OneColumnsLayout";
-import ProductContainer from "@/features/product/component/ProductContainer";
+import ProductContainer from "@/features/product/component/ProductContainer/ProductContainer";
 export default function Page() {
   return <OneColumnsLayout>
     <ProductContainer />

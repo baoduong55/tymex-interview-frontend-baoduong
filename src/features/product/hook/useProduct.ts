@@ -1,3 +1,4 @@
+'use client'
 import { TSearchProductParams } from '@/features/product/type/filter';
 import { TProduct } from '@/features/product/type/product';
 import { ApiInstance } from '@/lib/axios';

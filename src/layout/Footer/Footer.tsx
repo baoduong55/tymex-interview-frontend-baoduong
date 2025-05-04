@@ -54,7 +54,7 @@ const Footer = () => {
             <h2 className="text-xl font-bold mb-6">SUBSCRIBE TO RECEIVE OUR LATEST UPDATE</h2>
             <div className="flex gap-5 flex-col laptop:flex-row">
               <Input placeholder="Your email address" className='!border-[2px] !min-w-[200px]' type="email" />
-              <Button type="primary" className='laptop:w-auto !w-full h-11'>Subscribe</Button>
+              <Button className='laptop:w-auto !w-full h-11'>Subscribe</Button>
             </div>
           </div>
         </div>

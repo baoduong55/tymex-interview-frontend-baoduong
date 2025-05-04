@@ -25,7 +25,7 @@ export default function RangeSlider({
   };
 
   return (
-    <div className={clsx(style['custom-slider'], 'w-full px-2 text-white mb-1.5 desktop:mb-3')}>
+    <div className={clsx(style['custom-slider'], 'w-full px-2 text-white mb-1.5 desktop:mb-3')} >
       <Slider
         tooltip={{
           autoAdjustOverflow: false,

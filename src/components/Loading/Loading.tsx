@@ -13,14 +13,14 @@ export default function Loading({
       {blurBackground ? (
         <div className="bg-white/30 backdrop-saturate-50 absolute left-0 top-0 w-full h-full z-10">
           <Spin
-            className="absolute left-[50%] top-[50%]"
+            className="spin absolute left-[50%] top-[50%]"
             fullscreen={fullScreen}
             indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
           ></Spin>
         </div>
       ) : (
         <Spin
-          className="absolute left-[50%] top-[50%]"
+          className="spin absolute left-[50%] top-[50%]"
           fullscreen={fullScreen}
           indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />}
         ></Spin>

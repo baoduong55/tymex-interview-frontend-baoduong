@@ -8,21 +8,22 @@ interface Tprops extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElemen
   isActive?: boolean,
 }
 export const Button = (props: Tprops) => {
-  const { variant = 'primary', isActive = true, className, ...restProps } = props;
+  const { variant = 'primary', isActive = true, className, children, ...restProps } = props;
   return <div className={styles.customButton}>
     {
       variant === 'primary' && <button {...restProps} className={clsx(
         'primary',
-        !isActive && styles.inactive,
+        isActive ? 'active' : 'inactive',
         className,
       )}>
+        {children}
       </button>
     }
     {
       variant === 'secondary' && <button {...restProps} className={clsx(
         'secondary',
         className,
-      )}></button>
+      )}>{children}</button>
     }
   </div>
 };
