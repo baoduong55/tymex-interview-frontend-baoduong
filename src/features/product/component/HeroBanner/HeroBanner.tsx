@@ -30,7 +30,6 @@ export default function HeroBanner() {
           <Image
             src={newArrival}
             alt="New Arrival Collection - Tymex Marketplace"
-            priority
           />
         </motion.div>
         <motion.div
@@ -47,14 +46,12 @@ export default function HeroBanner() {
             src={theDJ}
             className='w-full h-full object-cover'
             alt="The DJ - Featured Digital Asset"
-            priority
           />
         </motion.div>
         <Image
           className='absolute bottom-0 left-0'
           src={productIntro}
           alt="Tymex Marketplace Product Introduction"
-          priority
         />
       </div>
     </section >

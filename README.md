@@ -15,9 +15,9 @@ This project implements a feature-based architecture with clean separation of co
 
 ### 🎯 Main App
 - **TymeX Marketplace** - Next.js application with app router
-![Baner UI](./docs/baner.png)
-
-![Product List](./docs/list.png)
+| ![Baner UI](./docs/baner.png) | ![Product List](./docs/list.png) |
+|-------------------------------|----------------------------------|
+| Banner UI                     | Product List                     |
 
 ### 🔨 Core Components
 #### Layout
@@ -72,9 +72,9 @@ This project implements a feature-based architecture with clean separation of co
 - Unit tests for hooks and components
 
 #### Test Coverage
-- Overall: 68.75%
-- Components: 89.47%
-- Hooks: 51.75%
-- Services: 30%
-- Features: 78.63%
+- Overall: 79%
+
+| % Stmts | % Branch | % Funcs | % Lines | 
+|---------|----------|---------|---------|
+|   84.82 |    82.14 |   63.93 |   85.09 |
 

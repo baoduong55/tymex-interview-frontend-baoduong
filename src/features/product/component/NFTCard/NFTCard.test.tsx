@@ -30,7 +30,7 @@ describe('NFTCard', () => {
     expect(screen.getByText('The Neon Brawler')).toBeInTheDocument()
 
     // Check if price is rendered
-    expect(screen.getByText('87.1')).toBeInTheDocument()
+    expect(screen.getByText('87.1 ETH')).toBeInTheDocument()
 
     // Check if tier is rendered
     expect(screen.getByText('Epic')).toBeInTheDocument()
@@ -48,7 +48,7 @@ describe('NFTCard', () => {
     render(<NFTCard product={mockProduct} />)
 
     const card = screen.getByRole('figure')
-    expect(card).toHaveClass('bg-[#2A2A2D]')
+    expect(card).toHaveClass('bg-[#3A384199]')
     expect(card).toHaveClass('rounded-[10px]')
   })
 

@@ -22,7 +22,7 @@ export default function Filter({ className, onApplyFilter }: TFilterProps) {
     onApplyFilter(initialFilter)
   }
 
-  return <div className={clsx("flex flex-col gap-4", className)}>
+  return <div className={clsx("flex flex-col gap-4", className)} data-testid="filter-group">
     <Field label="PRICE" labelClass="text-white">
       {filter.minPrice} {filter.maxPrice}
       <RangeSlider key={`${filter.minPrice}-${filter.maxPrice}`} minValue={filter.minPrice} maxValue={filter.maxPrice} onChange={(values) => setFilter({ ...filter, minPrice: values[0], maxPrice: values[1] })} />
