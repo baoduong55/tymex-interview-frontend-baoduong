@@ -36,7 +36,7 @@ This project implements a feature-based architecture with clean separation of co
 
 ### 🎯 Main App
 - **TymeX Marketplace** - Next.js application with app router
-| ![Baner UI](./docs/baner.png) | ![Product List](./docs/list.png) |
+ ![Baner UI](./docs/baner.png)         ![Product List](./docs/list.png)
 
 ### 🔨 Core Components
 #### Layout
