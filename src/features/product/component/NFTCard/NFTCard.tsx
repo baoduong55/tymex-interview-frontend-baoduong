@@ -30,10 +30,10 @@ const NFTCard = ({
   const avatarSrc = avatars[avatarIndex >= 0 ? avatarIndex : 0];
   const authorName = `${product.author.firstName}_${product.author.lastName}`;
   return (
-    <figure className="w-full  p-4 aspect-[267/365]  flex flex-col justify-between bg-[#2A2A2D] rounded-[10px] overflow-hidden" >
+    <figure className="w-full p-4 aspect-[267/365] flex flex-col justify-between bg-[#3A384199] rounded-[10px] overflow-hidden" >
       {/* Main Image Container */}
       <div className="relative aspect-square w-full bg-white rounded flex flex-col justify-between" style={{ background: colorMap[product.tier] }}>
-        {/* Legendary Badge */}
+        {/* Badge */}
         <div className="pt-4 px-4 z-10 flex justify-between w-full items-center">
           <div className="px-4 flex items-center justify-center bg-[#3a384199] rounded h-7">
             <span className="text-white font-medium text-xs">{product.tier}</span>
@@ -54,11 +54,11 @@ const NFTCard = ({
         </div>
       </div>
 
-      <figcaption>
+      <figcaption className='flex-1 w-full flex flex-col justify-evenly'>
         {/* Card Content */}
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex justify-between items-center text-xl tablet:text-base ">
           <h3 className="text-white font-semibold">{product.title}</h3>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-3">
             <Image
               src="/assets/icons/eth.svg"
               alt="Ethereum Currency Symbol"
@@ -66,39 +66,41 @@ const NFTCard = ({
               height={20}
               aria-hidden="true"
             />
-            <span className="text-white">{product.price}</span>
+            <span className="text-white">{product.price} ETH</span>
           </div>
         </div>
 
-        {/* Creator Info */}
-        <div className="flex items-center gap-2">
-          <div className="relative">
+
+      </figcaption>
+      {/* Creator Info */}
+      <div className="flex items-center gap-5">
+        <div className="relative rounded-full bg-white">
+          <Image
+            src={product.author.avatar}
+            alt={`${authorName}'s profile picture`}
+            width={32}
+            height={32}
+            className="rounded-full w-10 h-10 laptop:w-8 laptop:h-8"
+            quality={85}
+          />
+          <div className={clsx("absolute -bottom-1 -right-1 w-4 h-4 bg-black rounded-full border-2 border-[#2A2A2D]",
+            product.author.onlineStatus === 'online' && 'bg-[#31B1F7]',
+            product.author.onlineStatus === 'offline' && 'bg-[#808080]',
+            product.author.onlineStatus === 'busy' && 'bg-[#FF0000]',
+            product.author.onlineStatus === 'idle' && 'bg-[#FFFF00]',
+          )} >
             <Image
-              src={product.author.avatar}
-              alt={`${authorName}'s profile picture`}
+              src={`/assets/icons/status/${product.author.onlineStatus}.svg`}
+              alt={`${authorName} is ${product.author.onlineStatus}`}
+
               width={32}
               height={32}
-              className="rounded-full"
-              quality={85}
+              aria-hidden="true"
             />
-            <div className={clsx("absolute -bottom-1 -right-1 w-4 h-4 bg-black rounded-full border-2 border-[#2A2A2D]",
-              product.author.onlineStatus === 'online' && 'bg-[#31B1F7]',
-              product.author.onlineStatus === 'offline' && 'bg-[#808080]',
-              product.author.onlineStatus === 'busy' && 'bg-[#FF0000]',
-              product.author.onlineStatus === 'idle' && 'bg-[#FFFF00]',
-            )} >
-              <Image
-                src={`/assets/icons/status/${product.author.onlineStatus}.svg`}
-                alt={`${authorName} is ${product.author.onlineStatus}`}
-                width={16}
-                height={16}
-                aria-hidden="true"
-              />
-            </div>
           </div>
-          <span className="text-white text-xs">{authorName}</span>
         </div>
-      </figcaption>
+        <span className="text-white text-base tablet:text-xs">{authorName}</span>
+      </div>
     </figure>
   );
 };
