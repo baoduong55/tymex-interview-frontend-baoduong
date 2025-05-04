@@ -1,8 +1,9 @@
 'use client';
 
-import { MenuOutlined } from '@ant-design/icons';
+import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
 import { Col, Divider, Drawer } from 'antd';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const headers = [
@@ -48,16 +49,17 @@ export const MenuLeft = () => {
   const [page, setPage] = useState('marketplace');
 
   const menuItems = headers.map((header) => (
-    <Col
+    <Link
+      href={header.key}
       className={`font-bold cursor-pointer  ${page === header.key
-        ? "text-[#da458f] before:content-[''] before:absolute before:top-[0.3rem] before:left-[0.2rem] before:w-4 before:h-full before:border-b-[2px] before:border-[#da458f]"
-        : "text-white"
+        ? "!text-[#da458f] before:content-[''] before:absolute before:top-[0.3rem] before:left-[0.2rem] before:w-4 before:h-full before:border-b-[2px] before:border-[#da458f]"
+        : "!text-white"
         }`}
       onClick={() => setPage(header.key)}
       key={header.key}
     >
       {header.label}
-    </Col>
+    </Link>
   ));
 
   return (
@@ -75,11 +77,13 @@ export const MenuLeft = () => {
       </div>
       <Col className='desktop:hidden block'>
         <Drawer
-          className='!bg-[#17161a]'
+          className='!bg-[#17161a] !text-white'
           placement="left"
           onClose={() => setdisplayDrawer(false)}
           open={displayDrawer}
           width={320}
+          closeIcon={<CloseOutlined style={{ color: 'white', fontSize: '28px', fontWeight: 'bold', position: 'absolute', right: '1rem', top: '1rem' }} />}
+
         >
           <Logo />
           <Divider style={{ borderColor: 'white', marginTop: '2rem' }} />

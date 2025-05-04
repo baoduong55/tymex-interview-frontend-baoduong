@@ -32,7 +32,7 @@ export default function ProductContainer() {
           <FilterGroup onApplyFilter={(filter) => onSearch({ ...filter, page: 1 })}></FilterGroup>
         </section>
         <section className="w-full overflow-hidden flex flex-col">
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(227px,1fr))] desktopxl:gap-10 desktop:gap-8 laptop:gap-6 gap-4">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(267px,1fr))] desktop:grid-cols-4 desktopxl:gap-10 desktop:gap-8 laptop:gap-6 gap-4">
             {
               products.map((product) => (
                 <NFTCard key={product.id} product={product}></NFTCard>

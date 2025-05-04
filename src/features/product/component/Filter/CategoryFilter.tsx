@@ -59,22 +59,23 @@ export default function CategoryFilter({ onApplyFilter }: TProps) {
   }
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden rounded">
       {showScrollButtons && canScrollLeft && (
-        <div className="absolute flex justify-center left-0 top-1/2 transform -translate-y-1/2 z-10 p-1 text-white ">
+        <div className="absolute flex justify-center left-0 top-1/2 transform -translate-y-1/2 z-10 text-white">
           <button
             onClick={scrollLeft}
-            className="rounded-full bg-gradient-to-r from-[#da458f] to-[#da34dd] hover:from-[#d85697] hover:to-[#d34dd6] transition-colors"
-            style={{ height: '40px', width: '40px' }}
+            className="bg-black cursor-pointer"
+            style={{ height: '46px', width: '20px' }}
           >
             &lt;
           </button>
+          <div className="bg-gradient-to-r from-black to-[#fff0]"
+            style={{ height: '46px', width: '24px' }} />
         </div>
       )}
-
       <div
         ref={scrollContainerRef}
-        className="flex gap-4 primary w-full overflow-hidden scrollbar-hide my-2"
+        className="flex gap-4 primary w-full overflow-hidden scrollbar-hide my-2 px-1"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         onScroll={() => {
           if (scrollContainerRef.current) {
@@ -97,11 +98,13 @@ export default function CategoryFilter({ onApplyFilter }: TProps) {
       </div>
 
       {showScrollButtons && canScrollRight && (
-        <div className="absolute flex justify-center right-0 top-1/2 transform -translate-y-1/2 z-10 p-1 text-white ">
+        <div className="absolute flex justify-center right-0 top-1/2 transform -translate-y-1/2 z-10 text-white">
+          <div className="bg-gradient-to-r from-[#fff0] to-black"
+            style={{ height: '46px', width: '24px' }} />
           <button
             onClick={scrollRight}
-            className="rounded-full bg-gradient-to-r from-[#da458f] to-[#da34dd] hover:from-[#d85697] hover:to-[#d34dd6] transition-colors"
-            style={{ height: '40px', width: '40px' }}
+            className="bg-black cursor-pointer"
+            style={{ height: '46px', width: '20px' }}
           >
             &gt;
           </button>
