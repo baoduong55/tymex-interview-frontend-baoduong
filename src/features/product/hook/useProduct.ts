@@ -1,22 +1,10 @@
 'use client'
 import { TSearchProductParams } from '@/features/product/type/filter';
 import { TProduct } from '@/features/product/type/product';
-import { ApiInstance } from '@/lib/axios';
 import { useState, useEffect, useCallback } from 'react';
 import { initialSearchParams } from '@/features/product/const/filter';
-export const fetcher = async (params?: TSearchProductParams, signal?: AbortSignal) => {
-  // Convert 'all' values to null in params
-  if (params) {
-    const cleanedParams = { ...params };
-    for (const key in cleanedParams) {
-      if (cleanedParams[key] === 'all') {
-        cleanedParams[key] = null;
-      }
-    }
-    params = cleanedParams;
-  }
-  return ApiInstance.get<{ data: TProduct[] }>('/product', params, signal);
-};
+import { api } from '../api/http-client';
+
 
 export function useProducts() {
   const [isFirstLoad, setIsFirstLoad] = useState(true)
@@ -40,7 +28,7 @@ export function useProducts() {
       if (!noLoading) {
         setIsLoading(true)
       }
-      const res = await fetcher(params)
+      const res = await api.fetchProducts(params)
       if (params.page === 1) {
         setProducts(res.data)
       } else {
