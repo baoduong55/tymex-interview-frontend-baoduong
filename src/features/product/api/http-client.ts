@@ -1,4 +1,4 @@
-import { ApiInstance } from "@/lib/axios";
+import { ApiInstance } from "@/shared/lib/axios";
 import { TSearchProductParams } from "../type/filter";
 import { TProduct } from "../type/product";
 

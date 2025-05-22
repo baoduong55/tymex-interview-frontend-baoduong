@@ -1,4 +1,4 @@
-import Loading from "@/components/Loading/Loading";
+import Loading from "@/shared/components/Loading/Loading";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import { Suspense } from "react";

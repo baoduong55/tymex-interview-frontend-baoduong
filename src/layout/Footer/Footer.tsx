@@ -1,7 +1,7 @@
 'use client';
 
-import { Input } from '@/components/Input/Input';
-import { Button } from '@/components/Button/Button';
+import { Input } from '@/shared/components/Input/Input';
+import { Button } from '@/shared/components/Button/Button';
 import Link from 'next/link';
 import phone from '@icons/phone.svg';
 import comunicate from '@icons/comunicate.svg';

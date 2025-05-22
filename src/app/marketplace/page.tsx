@@ -1,6 +1,6 @@
 import OneColumnsLayout from "@/layout/OneColumnsLayout";
 import { Metadata } from "next";
-import ProductContainer from "@/features/product/component/ProductContainer/ProductContainer";
+import ProductContainer from "@/widgets/ProductContainer/ProductContainer";
 
 export const metadata: Metadata = {
   title: "Digital Asset Marketplace",

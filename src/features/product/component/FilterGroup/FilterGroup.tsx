@@ -1,9 +1,9 @@
-import Field from "@/components/Field/Field";
-import Dropdown from "@/components/Dropdown/Dropdown";
-import RangeSlider from "@/components/Slider/RangeSlider";
+import Field from "@/shared/components/Field/Field";
+import Dropdown from "@/shared/components/Dropdown/Dropdown";
+import RangeSlider from "@/shared/components/Slider/RangeSlider";
 import { tiers, themes, prices, times } from '@/features/product/const/filter';
 import clsx from "clsx";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/shared/components/Button/Button";
 import Image from "next/image";
 import { useState } from "react";
 import { initialFilter } from "@/features/product/const/filter";

@@ -1,5 +1,5 @@
 import { TProduct } from "@/features/product/type/product";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/shared/components/Button/Button";
 import { useState, useRef, useEffect } from "react";
 import { categories } from "@/features/product/const/filter";
 

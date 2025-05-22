@@ -4,7 +4,7 @@ import { Dropdown, MenuProps } from 'antd';
 import Image from 'next/image';
 import world from '@icons/world.svg';
 import arrowDown from '@icons/arrow-down.svg';
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/shared/components/Button/Button';
 
 const items: MenuProps['items'] = [
   {

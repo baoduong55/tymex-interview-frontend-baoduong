@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import NFTCard from "@/features/product/component/NFTCard/NFTCard";
-import { Button } from "@/components/Button/Button";
+import { Button } from "@/shared/components/Button/Button";
 import { useProducts } from "@/features/product/hook/useProduct";
 import HeroBanner from "@/features/product/component/HeroBanner/HeroBanner";
 import CategoryFilter from "@/features/product/component/CategoryFilter/CategoryFilter";
@@ -9,8 +9,8 @@ import FilterGroup from "@/features/product/component/FilterGroup/FilterGroup";
 import { FilterOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import ModalFilter from "@/features/product/component/ModalFilter/ModalFilter";
-import Search from "@components/Search/Search";
-import SkeletonGrid from "@/components/Card/SkeletonGrid/SkeletonGrid";
+import Search from "@/shared/components/Search/Search";
+import SkeletonGrid from "@/shared/components/Card/SkeletonGrid/SkeletonGrid";
 
 
 export default function ProductContainer() {
